@@ -57,14 +57,12 @@ try {
     }
 }
 
-
-
 exports.destroy = async function destroy(req,res) {
     //delete/destroy a todo
 try {
   const deleted = await Todo.findOneAndDelete({ _id: req.params.id })
 
-  res.status(200).json ({ msg: 'The Todo with the id of ${deleted._id} was deleted from the MongoDB database' })
+  res.status(200).json ({ msg: `The Todo with the id of ${deleted._id} was deleted from the MongoDB database` })
 
 
 } catch (error) {
